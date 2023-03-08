@@ -1,9 +1,9 @@
-import React from "react";
+import AppRouter from './components/AppRouter';
 
 function App() {
   return (
     <div className="App">
-      <div>Worked</div>
+      <AppRouter />
     </div>
   );
 }
