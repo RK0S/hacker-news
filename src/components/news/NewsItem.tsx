@@ -1,5 +1,5 @@
 import { Box, Card, CardContent } from "@mui/material";
-import React, { FC } from "react";
+import { FC } from "react";
 import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Link } from "react-router-dom";

@@ -9,9 +9,9 @@ export const fetchNewsIds = async (): Promise<number[]> => {
      return newsIds
 };
 
-export const fetchStory = async (id: number) => {
-     const story = await axios
+export const fetchItem = async (id: number) => {
+     const item = await axios
           .get<number[]>(`${URL}/item/${id}.json`)
           .then(res => res.data)
-     return story
+     return item
 };

@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import NewsList from '../components/NewsList';
+import NewsList from '../components/news/NewsList';
 
 const MainPage: FC = () => {
     return (

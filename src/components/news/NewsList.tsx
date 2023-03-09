@@ -1,17 +1,13 @@
-import { FC, useEffect } from 'react';
-import { useActions } from '../hooks/useActions';
-import { useTypedSelector } from '../hooks/useTypedSelector';
+import { FC } from 'react';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 import NewsItem from './NewsItem';
 import Typography from '@mui/material/Typography';
-import moment from 'moment';
+import { useStart } from '../../hooks/useStart';
+import { msToDate } from '../../helpers/msToDate';
 
 const NewsList: FC = () => {
      const {news, error, loading} = useTypedSelector(state => state.news)
-     const {fetchNews} = useActions()
-
-     useEffect(() => {
-          fetchNews()
-     }, [])
+     useStart()
 
      return (
           <div>
@@ -24,7 +20,7 @@ const NewsList: FC = () => {
                          title={item.title} 
                          score={item.score} 
                          author={item.by}
-                         date={moment(item.time * 1000).format("DD-MM-YYYY h:mm")}
+                         date={msToDate(item.time)}
                          key={item.id}
                     />
                )}
