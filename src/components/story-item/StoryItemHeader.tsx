@@ -2,10 +2,15 @@ import { FC } from "react";
 import { Typography, Box } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { msToDate } from "../../helpers/msToDate";
+import { StoryData } from "../../models/story";
 
-const StoryItemHeader: FC<any> = ({ story }: any) => {
+interface ItemHeaderProps {
+  story: StoryData;
+}
+
+const StoryItemHeader: FC<ItemHeaderProps> = ({ story }: ItemHeaderProps) => {
   return (
-    <div>
+    <Box>
       <Typography sx={{ mb: 0.5 }} variant="h4">
         {story.title}
       </Typography>
@@ -23,7 +28,7 @@ const StoryItemHeader: FC<any> = ({ story }: any) => {
       <Typography sx={{ mb: 2 }} fontSize="small">
         {msToDate(story.time)}
       </Typography>
-    </div>
+    </Box>
   );
 };
 

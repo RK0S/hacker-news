@@ -2,15 +2,20 @@ import { FC } from "react";
 import StoryItemBody from "./StoryItemBody";
 import StoryItemHeader from "./StoryItemHeader";
 import StoryItemFooter from "./StoryItemFooter";
+import { Box } from "@mui/material";
+import { StoryData } from "../../models/story";
 
-const StoryItem: FC<any> = ({ story }: any) => {
-  console.log(story);
+interface ItemProps {
+  story: StoryData;
+}
+
+const StoryItem: FC<ItemProps> = ({ story }: ItemProps) => {
   return (
-    <div>
+    <Box>
       <StoryItemHeader story={story} />
       <StoryItemBody story={story} />
       <StoryItemFooter story={story} />
-    </div>
+    </Box>
   );
 };
 

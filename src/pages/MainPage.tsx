@@ -1,12 +1,12 @@
-import { FC } from 'react';
-import NewsList from '../components/news/NewsList';
+import { FC } from "react";
+import NewsList from "../components/news/NewsList";
 
 const MainPage: FC = () => {
-    return (
-        <div>
-            <NewsList />
-        </div>
-    );
+  return (
+    <div>
+      <NewsList />
+    </div>
+  );
 };
 
 export default MainPage;

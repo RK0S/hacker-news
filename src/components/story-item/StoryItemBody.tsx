@@ -1,17 +1,23 @@
 import { FC } from "react";
-import { Typography, Link } from '@mui/material';
+import { Typography, Link, Box } from "@mui/material";
+import { StoryData } from "../../models/story";
 
-const StoryItemBody: FC<any> = ({ story }: any) => {
+interface ItemBodyProps {
+  story: StoryData;
+}
+
+const StoryItemBody: FC<ItemBodyProps> = ({ story }: ItemBodyProps) => {
   return (
-    <div>
-      <Typography sx={{ mb: 2 }}>
-        <div dangerouslySetInnerHTML={{ __html: story.text }}></div>
-      </Typography>
+    <Box>
+      <Typography
+        sx={{ mb: 2 }}
+        dangerouslySetInnerHTML={{ __html: story.text }}
+      ></Typography>
       {story.url && <Typography variant="h6">Читать полностью</Typography>}
       <Link href={story.url} color="inherit" underline="hover">
         {story.url}
       </Link>
-    </div>
+    </Box>
   );
 };
 

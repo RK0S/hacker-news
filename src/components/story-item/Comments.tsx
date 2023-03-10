@@ -1,27 +1,30 @@
-import { FC } from "react";
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import {TreeView, TreeItem} from '@mui/lab';
+import { useState, FC } from "react";
+import Comment from "./Comment";
+import { Box, Typography } from "@mui/material";
 
+interface Props {
+  treeData: number[];
+}
 
-const Comments: FC = () => {
-    const renderTree = (nodes: any) => (
-        <TreeItem key={nodes.id} nodeId={nodes.id} label={nodes.name}>
-          {Array.isArray(nodes.children)
-            ? nodes.children.map((node: any) => renderTree(node))
-            : null}
-        </TreeItem>
-      );
+const Comments: FC<Props> = ({ treeData }: Props) => {
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  const changeStatus = () => {
+    setIsLoading(false);
+  };
+
   return (
-    <TreeView
-      aria-label="rich object"
-      defaultCollapseIcon={<ExpandMoreIcon />}
-      defaultExpanded={['root']}
-      defaultExpandIcon={<ChevronRightIcon />}
-      sx={{ height: 110, flexGrow: 1, maxWidth: 400, overflowY: 'auto' }}
-    >
-        {/* {renderTree(data)} */}
-    </TreeView>
+    <Box sx={{ pl: 1 }}>
+      {isLoading && <Typography variant="h6">Загрузка...</Typography>}
+      {treeData.map((node: number) => (
+        <Comment
+          isLoading={isLoading}
+          changeStatus={changeStatus}
+          node={node}
+          key={node}
+        />
+      ))}
+    </Box>
   );
 };
 
